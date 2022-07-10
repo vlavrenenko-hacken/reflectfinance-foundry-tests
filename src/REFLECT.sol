@@ -137,6 +137,7 @@ contract REFLECT is Context, IERC20, Ownable {
             }
         }
     }
+
     function _approve(address owner, address spender, uint256 amount) private {
         require(owner != address(0), "ERC20: approve from the zero address");
         require(spender != address(0), "ERC20: approve to the zero address");
@@ -161,7 +162,7 @@ contract REFLECT is Context, IERC20, Ownable {
             _transferStandard(sender, recipient, amount);
         }
     }
-    // 1+ 
+
     function _transferStandard(address sender, address recipient, uint256 tAmount) private {
         (uint256 rAmount, uint256 rTransferAmount, uint256 rFee, uint256 tTransferAmount, uint256 tFee) = _getValues(tAmount);
         _rOwned[sender] = _rOwned[sender] - rAmount;
